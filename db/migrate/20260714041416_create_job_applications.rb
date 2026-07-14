@@ -1,6 +1,6 @@
-class CreateApplications < ActiveRecord::Migration[8.1]
+class CreateJobApplications < ActiveRecord::Migration[8.1]
   def change
-    create_table :applications do |t|
+    create_table :job_applications do |t|
       t.string :position, null: false, default: ""
       t.text :url, null: false, default: ""
       t.date :applied_on, null: false
@@ -12,7 +12,7 @@ class CreateApplications < ActiveRecord::Migration[8.1]
       t.timestamps
     end
 
-    add_index :applications, [:user_id, :status] # rubocop:disable Layout/SpaceInsideArrayLiteralBrackets
-    add_index :applications, :applied_on
+    add_index :job_applications, [:user_id, :status] # rubocop:disable Layout/SpaceInsideArrayLiteralBrackets
+    add_index :job_applications, :applied_on
   end
 end
